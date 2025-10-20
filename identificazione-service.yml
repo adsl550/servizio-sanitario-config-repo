@@ -4,10 +4,10 @@ server:
 spring:
   # --- Configurazione del Database ---
   datasource:
-    url: jdbc:postgresql://localhost:5432/identificazione_db
-    username: sanita
-    password: password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/identificazione_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   
   # --- Configurazione di JPA/Hibernate ---
   jpa:
@@ -17,7 +17,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true # Formatta le query SQL nei log per renderle leggibili
     show-sql: true # Mostra le query SQL nei log
 
@@ -29,3 +29,9 @@ eureka:
   instance:
     # Diciamo a Eureka di usare il nome del servizio + porta casuale per l'ID istanza
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+logging:
+  level:
+    root: DEBUG
+
