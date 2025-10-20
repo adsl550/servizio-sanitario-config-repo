@@ -15,7 +15,7 @@ spring:
       connection-timeout: 30000 # 30 secondi per ottenere una connessione prima di un errore
       idle-timeout: 600000      # 10 minuti prima di chiudere una connessione inattiva
       max-lifetime: 1800000     # 30 minuti di vita massima per una connessione
-      maximum-pool-size: 10
+
   jpa:
     hibernate:
       ddl-auto: update
