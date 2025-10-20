@@ -1,0 +1,7 @@
+# Proprietà solo per il Gateway
+server:
+  port: 8080 # Il Gateway girerà sulla porta 8080
+
+spring:
+  application:
+    name: gateway-service # Diamo un nome esplicito anche qui
