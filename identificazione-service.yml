@@ -35,5 +35,7 @@ eureka:
 logging:
   level:
     root: DEBUG
-
-
+    org.hibernate.SQL: INFO
+    org.hibernate.resource.transaction: INFO
+    org.springframework.data.jpa.repository.query: INFO
+    org.springframework.orm.jpa: INFO
