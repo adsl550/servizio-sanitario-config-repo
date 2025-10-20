@@ -1,41 +1,22 @@
-# Proprietà solo per il Gateway
 server:
-  port: 8080 # Il Gateway girerà sulla porta 8080
+  port: 8080
 
 spring:
   application:
-    name: gateway-service # Diamo un nome esplicito anche qui
-
-# Proprietà solo per il Gateway
-server:
-  port: 8080 # Il Gateway girerà sulla porta 8080
-
-spring:
-  application:
-    name: gateway-service # Diamo un nome esplicito anche qui
-  
-  # --- Configurazione delle rotte del Gateway ---
+    name: gateway-service
   cloud:
     gateway:
       routes:
-        # Prima rotta di esempio: indirizziamo verso un microservizio "identificazione"
-        # che ancora non esiste, ma che esisterà.
-        - id: identificazione-service-route # Un nome univoco per la rotta
-          # La sintassi 'lb' sta per 'Load Balancer'.
-          # Il Gateway chiederà a Eureka l'indirizzo di un servizio registrato
-          # con il nome 'IDENTIFICAZIONE-SERVICE' e lo userà.
-          uri: lb://IDENTIFICAZIONE-SERVICE 
+        - id: identificazione-service-route
+          uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
-            # Questa rotta si attiva se il path della richiesta inizia con /api/v1/identificazione/
             - Path=/api/v1/identificazione/**
 
-        # Seconda rotta: indirizziamo verso il microservizio "cartella"
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
           predicates:
             - Path=/api/v1/cartella/**
 
-# --- Configurazione del client Eureka ---
 eureka:
   client:
     service-url:
