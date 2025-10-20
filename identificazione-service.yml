@@ -1,0 +1,31 @@
+server:
+  port: 0 # Usiamo una porta dinamica! Best practice per microservizi.
+
+spring:
+  # --- Configurazione del Database ---
+  datasource:
+    url: jdbc:postgresql://localhost:5432/identificazione_db
+    username: sanita
+    password: password
+    driver-class-name: org.postgresql.Driver
+  
+  # --- Configurazione di JPA/Hibernate ---
+  jpa:
+    hibernate:
+      # In sviluppo, 'update' è comodo: Hibernate aggiorna lo schema del DB.
+      # In produzione si usa 'validate' o strumenti come Flyway/Liquibase.
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true # Formatta le query SQL nei log per renderle leggibili
+    show-sql: true # Mostra le query SQL nei log
+
+# --- Configurazione del client Eureka ---
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # Diciamo a Eureka di usare il nome del servizio + porta casuale per l'ID istanza
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
