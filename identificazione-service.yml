@@ -1,5 +1,5 @@
 server:
-  port: 0 # Usiamo una porta dinamica! Best practice per microservizi.
+  port: 0
 
 spring:
   # --- Configurazione del Database ---
@@ -12,14 +12,12 @@ spring:
   # --- Configurazione di JPA/Hibernate ---
   jpa:
     hibernate:
-      # In sviluppo, 'update' è comodo: Hibernate aggiorna lo schema del DB.
-      # In produzione si usa 'validate' o strumenti come Flyway/Liquibase.
       ddl-auto: update
     properties:
       hibernate:
-         dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: true # Formatta le query SQL nei log per renderle leggibili
-    show-sql: true # Mostra le query SQL nei log
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
 
 # --- Configurazione del client Eureka ---
 eureka:
@@ -27,11 +25,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
-    # Diciamo a Eureka di usare il nome del servizio + porta casuale per l'ID istanza
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
 
 logging:
   level:
     root: DEBUG
-
