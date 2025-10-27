@@ -1,7 +1,6 @@
 server:
   port: 8080
 
-# --- Configurazione di base per Spring Boot ---
 spring:
   application:
     name: gateway-service
@@ -20,15 +19,8 @@ spring:
           predicates:
             - Path=/api/v1/cartella/**
           filters:
-            # 1. Applica il nostro filtro di sicurezza personalizzato
             - name: Authentication
-            # 2. Applica il Circuit Breaker
-            - name: CircuitBreaker
-              args:
-                name: cartellaServiceCircuitBreaker # Un nome univoco per questo interruttore
-                fallbackUri: forward:/fallback/cartellaService # Chiama il nostro controller di fallback
 
-# --- Configurazione di base per Eureka ---
 eureka:
   client:
     service-url:
@@ -36,20 +28,33 @@ eureka:
   instance:
     prefer-ip-address: true
 
-# --- Proprietà per la sicurezza JWT ---
-jwt:
-  secret: ${JWT_SECRET_KEY:default-secret-for-dev}
-  expiration-ms: 3600000
 
-# --- (Opzionale ma raccomandato) Configurazione fine del Circuit Breaker ---
-resilience4j:
-  circuitbreaker:
-    configs:
-      default: # Impostazioni di default per tutti i circuit breaker
-        sliding-window-size: 10 # Valuta le ultime 10 chiamate
-        failure-rate-threshold: 50 # Se il 50% fallisce, apre il circuito
-        wait-duration-in-open-state: 10s # Rimane aperto per 10 secondi prima di riprovare
-        permitted-number-of-calls-in-half-open-state: 3 # Permette 3 chiamate di prova
-    instances:
-      cartellaServiceCircuitBreaker: # Impostazioni specifiche per il nostro circuito
-        base-config: default # Eredita le impostazioni di default
+logging:
+  level:
+    root: DEBUG
+    org.hibernate.SQL: INFO
+    org.hibernate.resource.transaction: INFO
+    org.springframework.data.jpa.repository.query: INFO
+    org.springframework.orm.jpa: INFO
+
+# --- Configurazione Sicurezza Personalizzata ---
+security:
+  preliminary-filter:
+    enabled: true
+    allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/refresh", "serviziosanitario/login" ]
+    required-headers: ServizioSanitario,Authorities
+
+  # --- Configurazione JWT ---
+  jwt:
+    # Il segreto ora viene letto dal file .env per non committealo
+    secret: ${JWT_SECRET_KEY}
+    expiration-ms: 3600000 # 1 ora, comodo per il debug locale
+
+  # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
+  cors:
+    allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
+    allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+    allowed-headers: [ "*" ]
+    exposed-headers: [ "Authorization", "Content-Type" ]
+    max-age: 3600
+    require-https: false
