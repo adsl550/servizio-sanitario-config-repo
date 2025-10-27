@@ -33,4 +33,24 @@ logging:
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
 
+# --- Configurazione Sicurezza Personalizzata ---
+security:
+  preliminary-filter:
+    enabled: true
+    allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/refresh", "serviziosanitario/login" ]
+    required-headers: ServizioSanitario,Authorities
 
+  # --- Configurazione JWT ---
+  jwt:
+    # Il segreto ora viene letto dal file .env per non committealo
+    secret: ${JWT_SECRET_KEY}
+    expiration-ms: 3600000 # 1 ora, comodo per il debug locale
+
+  # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
+  cors:
+    allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
+    allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+    allowed-headers: [ "*" ]
+    exposed-headers: [ "Authorization", "Content-Type" ]
+    max-age: 3600
+    require-https: false
