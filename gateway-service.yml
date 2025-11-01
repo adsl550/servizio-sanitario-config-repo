@@ -46,6 +46,7 @@ security:
     # Il segreto ora viene letto dal file .env per non committealo
     secret: ${JWT_SECRET_KEY}
     expiration-ms: 3600000 # 1 ora, comodo per il debug locale
+     prefix: "Bearer "
 
   # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
   cors:
