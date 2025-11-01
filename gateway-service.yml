@@ -16,12 +16,6 @@ spring:
           uri: lb://CARTELLA-SERVICE
           predicates:
             - Path=/api/v1/cartella/**
-          filters:
-            - name: Authentication
-            - name: CircuitBreaker
-              args:
-                name: cartellaServiceCircuitBreaker
-                fallbackUri: forward:/fallback/cartellaService
 
 eureka:
   client:
