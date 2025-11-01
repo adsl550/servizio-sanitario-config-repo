@@ -2,6 +2,8 @@ server:
   port: 0 # Porta dinamica
 
 spring:
+  application:
+    name: IDENTIFICAZIONE-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/identificazione_db
     username: root
