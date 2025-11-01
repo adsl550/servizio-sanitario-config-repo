@@ -6,8 +6,8 @@ spring:
     name: IDENTIFICAZIONE-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/identificazione_db
-    username: root
-    password: root
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
