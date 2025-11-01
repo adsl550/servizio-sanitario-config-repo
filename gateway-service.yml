@@ -11,6 +11,8 @@ spring:
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
             - Path=/api/v1/identificazione/**
+          filters:
+            - name: Authentication
 
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
