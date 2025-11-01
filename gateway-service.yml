@@ -11,6 +11,9 @@ spring:
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
             - Path=/api/v1/identificazione/**
+          filters:
+           # Riscrive il path: rimuove /auth e aggiunge /api/v1/auth Esempio: /auth/login -> /api/v1/auth/login
+            - RewritePath=/auth(?<segment>/?.*), /api/v1/auth${segment}
 
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
