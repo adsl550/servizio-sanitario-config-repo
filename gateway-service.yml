@@ -72,38 +72,17 @@ security:
     enabled: true
     allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/login" ]
     required-headers: ServizioSanitario,Authorities
-
-  # --- Configurazione JWT ---
-#jwt:
-#  secret: ${JWT_SECRET_KEY}
-#  expiration-ms: 3600000 # 1 ora, comodo per il debug locale
-#  prefix: "Bearer "
-
-  # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
- # cors:
- #   allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
- #   allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
- #   allowed-headers: [ "*" ]
- #   exposed-headers: [ "Authorization", "Content-Type" ]
- #   max-age: 3600
- #   require-https: false
  
 app:
   security:
-    public-endpoints:
-      - "/serviziosanitario/login"
-      - "/serviziosanitario/registration"
-      - "/v3/api-docs/**"
-      - "/swagger-ui/**"
-      - "/webjars/swagger-ui/**"
-      - "/error"
+    public-endpoints: ${PUBLIC_ENDPOINTS}
     cors:  
-      allowed-origins: ${CORS_ALLOWED_ORIGINS} #[ "http://localhost:4200", "http://localhost:8080" ]
-      allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-      allowed-headers: [ "ServizioSanitario","Authorities","X-SVZ-HEADER" ]
-      exposed-headers: [ "Authorization", "Content-Type" ]
-      max-age: 3600
-      require-https: false
+      allowed-origins: ${CORS_ALLOWED_ORIGINS}
+      allowed-methods: ${CORS_ALLOWED_METHODS} 
+      allowed-headers: ${CORS_ALLOWED_HEADERS}
+      exposed-headers: ${CORS_ALLOWED_EXPOSED_HEADERS}
+      max-age: ${CORS_ALLOWED_MAX_AGE}
+      require-https: ${CORS_ALLOWED_REQUIRE_HTTPS} 
     jwt:
       secret: ${JWT_SECRET_KEY}
       expiration-ms: ${JWT_EXPIRATION_MS}
