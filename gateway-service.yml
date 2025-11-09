@@ -88,3 +88,14 @@ jwt:
     exposed-headers: [ "Authorization", "Content-Type" ]
     max-age: 3600
     require-https: false
+
+
+app:
+  security:
+    public-endpoints:
+      - "/serviziosanitario/login"
+      - "/serviziosanitario/registration"
+      - "/v3/api-docs/**"
+      - "/swagger-ui/**"
+      - "/webjars/swagger-ui/**"
+      - "/error"
