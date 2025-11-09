@@ -10,7 +10,7 @@ spring:
         - id: login-route
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
-            - Path=/auth/login
+            - Path=/serviziosanitario/login
             - Method=POST
             - Header=Authorization, Basic .+
             - Header=X-SVZ-HEADER
