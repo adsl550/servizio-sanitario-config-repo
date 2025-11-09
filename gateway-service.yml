@@ -87,4 +87,25 @@ app:
       secret: ${JWT_SECRET_KEY}
       expiration-ms: ${JWT_EXPIRATION_MS}
       prefix: ${PREFIX}
-  database:
+  datasource:
+    url: jdbc:mysql://localhost:3306/${DATASOURCE_GATEWAY_DATABASE}
+    username: ${DATASOURCE_GATEWAY_USERNAME}
+    password: ${DATASOURCE_GATEWAY_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: Hikari-Gateway # Diamo un nome al pool, utile per i log
+      maximum-pool-size: 10 # Dimensione massima. Un buon punto di partenza. Non esagerare!
+      minimum-idle: 5       # Connessioni minime da tenere sempre pronte
+      connection-timeout: 30000 # 30 secondi per ottenere una connessione prima di un errore
+      idle-timeout: 600000      # 10 minuti prima di chiudere una connessione inattiva
+      max-lifetime: 1800000     # 30 minuti di vita massima per una connessione  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: true
+
