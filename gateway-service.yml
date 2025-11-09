@@ -88,7 +88,7 @@ app:
       expiration-ms: ${JWT_EXPIRATION_MS}
       prefix: ${PREFIX}
   datasource:
-    url: jdbc:mysql://localhost:3306/${DATASOURCE_GATEWAY_DATABASE}
+    url: ${SPRING_DATASOURCE_GATEWAY_URL}
     username: ${DATASOURCE_GATEWAY_USERNAME}
     password: ${DATASOURCE_GATEWAY_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
