@@ -74,11 +74,10 @@ security:
     required-headers: ServizioSanitario,Authorities
 
   # --- Configurazione JWT ---
-jwt:
-    # Il segreto ora viene letto dal file .env per non committealo
-  secret: ${JWT_SECRET_KEY}
-  expiration-ms: 3600000 # 1 ora, comodo per il debug locale
-  prefix: "Bearer "
+#jwt:
+#  secret: ${JWT_SECRET_KEY}
+#  expiration-ms: 3600000 # 1 ora, comodo per il debug locale
+#  prefix: "Bearer "
 
   # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
  # cors:
@@ -88,8 +87,7 @@ jwt:
  #   exposed-headers: [ "Authorization", "Content-Type" ]
  #   max-age: 3600
  #   require-https: false
-
-
+ 
 app:
   security:
     public-endpoints:
@@ -99,11 +97,14 @@ app:
       - "/swagger-ui/**"
       - "/webjars/swagger-ui/**"
       - "/error"
-    allowed-origins: ${CORS_ALLOWED_ORIGINS} #[ "http://localhost:4200", "http://localhost:8080" ]
-    allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-    allowed-headers: [ "ServizioSanitario","Authorities","X-SVZ-HEADER" ]
-    exposed-headers: [ "Authorization", "Content-Type" ]
-    max-age: 3600
-    require-https: false
+    cors:  
+      allowed-origins: ${CORS_ALLOWED_ORIGINS} #[ "http://localhost:4200", "http://localhost:8080" ]
+      allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+      allowed-headers: [ "ServizioSanitario","Authorities","X-SVZ-HEADER" ]
+      exposed-headers: [ "Authorization", "Content-Type" ]
+      max-age: 3600
+      require-https: false
     jwt:
       secret: ${JWT_SECRET_KEY}
+      expiration-ms: ${JWT_EXPIRATION_MS}
+      prefix: ${PREFIX}
