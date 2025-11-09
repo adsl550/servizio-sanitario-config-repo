@@ -99,7 +99,6 @@ app:
       - "/swagger-ui/**"
       - "/webjars/swagger-ui/**"
       - "/error"
-  cors:
     allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
     allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
     allowed-headers: [ "*" ]
