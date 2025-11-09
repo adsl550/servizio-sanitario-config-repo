@@ -81,13 +81,13 @@ jwt:
   prefix: "Bearer "
 
   # --- Configurazione CORS (permissiva per lo sviluppo locale) ---
-  cors:
-    allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
-    allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-    allowed-headers: [ "*" ]
-    exposed-headers: [ "Authorization", "Content-Type" ]
-    max-age: 3600
-    require-https: false
+ # cors:
+ #   allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
+ #   allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+ #   allowed-headers: [ "*" ]
+ #   exposed-headers: [ "Authorization", "Content-Type" ]
+ #   max-age: 3600
+ #   require-https: false
 
 
 app:
@@ -101,7 +101,7 @@ app:
       - "/error"
     allowed-origins: [ "http://localhost:4200", "http://localhost:8080" ]
     allowed-methods: [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
-    allowed-headers: [ "*" ]
+    allowed-headers: [ "ServizioSanitario","Authorities","X-SVZ-HEADER" ]
     exposed-headers: [ "Authorization", "Content-Type" ]
     max-age: 3600
     require-https: false
