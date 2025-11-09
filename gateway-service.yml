@@ -70,7 +70,7 @@ logging:
 security:
   preliminary-filter:
     enabled: true
-    allowed-urls: [ "/error", "/serviziosanitario/registration","serviziosanitario/login" ]
+    allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/login" ]
     required-headers: ServizioSanitario,Authorities
 
   # --- Configurazione JWT ---
