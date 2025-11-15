@@ -22,7 +22,7 @@ spring:
           predicates:
             - Path=/auth/register
             - Method=POST
-            - Header=X-SYP-HEADER
+            - Header=X-SVZ-HEADER
           filters:
             - RewritePath=/auth/register, /api/v1/auth/register
  # --- ROTTA GENERICA PER TUTTE LE ALTRE API (protette da JWT) ---
@@ -71,7 +71,7 @@ security:
   preliminary-filter:
     enabled: true
     allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/login" ]
-    required-headers: ServizioSanitario,Authorities
+    required-headers: Serviziosanitario,Authorities
  
 app:
   security:
