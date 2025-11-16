@@ -71,7 +71,7 @@ security:
   preliminary-filter:
     enabled: true
     allowed-urls: [ "/error", "/serviziosanitario/registration","/serviziosanitario/login" ]
-    required-headers: Authorization,Content-Type,Accept,Origin,Serviziosanitario,Authorities,x-svz-header
+    required-headers: Serviziosanitario,Authorities,x-svz-header
  
 app:
   security:
