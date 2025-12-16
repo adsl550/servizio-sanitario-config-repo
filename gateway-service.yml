@@ -19,14 +19,14 @@ spring:
           #  - name: GenerateJwtOnLogin
            #  - RewritePath=/serviziosanitario/login, /api/v1/serviziosanitario/login
 
-        - id: register-route
-          uri: lb://IDENTIFICAZIONE-SERVICE
-          predicates:
-            - Path=/auth/register
-            - Method=POST
-            - Header=X-SVZ-HEADER
-          filters:
-            - RewritePath=/auth/register, /api/v1/auth/register
+        #- id: register-route
+         # uri: lb://IDENTIFICAZIONE-SERVICE
+         # predicates:
+         #   - Path=/auth/register
+         #   - Method=POST
+         #   - Header=X-SVZ-HEADER
+         # filters:
+         #   - RewritePath=/auth/register, /api/v1/auth/register
  # --- ROTTA GENERICA PER TUTTE LE ALTRE API (protette da JWT) ---
         - id: api-catch-all-route
           # Questo uri è solo un placeholder, il routing vero avviene a valle
