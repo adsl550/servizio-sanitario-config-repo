@@ -13,12 +13,12 @@ spring:
         - id: registration-login-route
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
-            - Path=/${application.api-prefix}/**
+            - Path=${application.api-prefix}/**
        
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
           predicates:
-            - Path=/${application.api-prefix}/cartella/**
+            - Path=${application.api-prefix}/cartella/**
 
 eureka:
   client:
