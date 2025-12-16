@@ -1,54 +1,24 @@
 server:
   port: 8080
 
+app:
+  api-prefix: /serviziosanitario
+
 spring:
   application:
     name: GATEWAY-SERVICE
   cloud:
     gateway:
       routes:
-        - id: login-route
+        - id: registration-login-route
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
-            - Path=/serviziosanitario/**
-           # - Method=POST
-           # - Header=Authorization, Basic .+
-           # - Header=X-SVZ-HEADER
-          #filters:
-           # - name: RegistrationBodyValidation
-          #  - name: GenerateJwtOnLogin
-           #  - RewritePath=/serviziosanitario/login, /api/v1/serviziosanitario/login
-
-        #- id: register-route
-         # uri: lb://IDENTIFICAZIONE-SERVICE
-         # predicates:
-         #   - Path=/auth/register
-         #   - Method=POST
-         #   - Header=X-SVZ-HEADER
-         # filters:
-         #   - RewritePath=/auth/register, /api/v1/auth/register
- # --- ROTTA GENERICA PER TUTTE LE ALTRE API (protette da JWT) ---
-        - id: api-catch-all-route
-          # Questo uri è solo un placeholder, il routing vero avviene a valle
-          # Ma è più comune avere rotte specifiche per servizio come avevi prima
-          uri: lb://dummy-service 
-          predicates:
-            # Cattura tutte le altre richieste sotto /api/
-            - Path=/api/**
-          # Questa rotta non fa nulla da sola, serve solo a raggruppare
-          # le richieste che dovranno passare dal filtro JWT.
-          # Le tue rotte specifiche per 'identificazione' e 'cartella' sono migliori.
-          # Le lascio qui sotto come esempio corretto.
-        # --- Le tue rotte specifiche per i servizi protetti ---
-        - id: identificazione-service-route
-          uri: lb://IDENTIFICAZIONE-SERVICE
-          predicates:
-            - Path=/api/v1/identificazione/**
-
+            - Path=/${app.api-prefix}/**
+       
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
           predicates:
-            - Path=/api/v1/cartella/**
+            - Path=/${app.api-prefix}/cartella/**
 
 eureka:
   client:
