@@ -14,9 +14,9 @@ spring:
            # - Method=POST
            # - Header=Authorization, Basic .+
            # - Header=X-SVZ-HEADER
-          filters:
-            - name: RegistrationBodyValidation
-            - name: GenerateJwtOnLogin
+          #filters:
+           # - name: RegistrationBodyValidation
+          #  - name: GenerateJwtOnLogin
            #  - RewritePath=/serviziosanitario/login, /api/v1/serviziosanitario/login
 
         - id: register-route
