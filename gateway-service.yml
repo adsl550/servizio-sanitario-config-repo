@@ -14,6 +14,8 @@ spring:
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
             - Path=${application.api-prefix}/**
+          filters:
+            - GenerateJwtOnLogin
        
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
