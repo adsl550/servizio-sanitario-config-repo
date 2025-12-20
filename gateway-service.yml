@@ -7,16 +7,16 @@ application:
 spring:
   application:
     name: GATEWAY-SERVICE
- redis: 
-   host: ${SPRING_REDIS_HOST}
-   port: ${SPRING_REDIS_PORT}
-   password: ${SPRING_REDIS_PASSWORD}
- session:
-   store-type: redis
-   redis:
-     flush-mode: on-save
-     namespace: shareyourpassion_local
-     save-mode: on-set-attribute
+  redis: 
+    host: ${SPRING_REDIS_HOST}
+    port: ${SPRING_REDIS_PORT}
+    password: ${SPRING_REDIS_PASSWORD}
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on-save
+      namespace: shareyourpassion_local
+      save-mode: on-set-attribute
       
   cloud:
     gateway:
