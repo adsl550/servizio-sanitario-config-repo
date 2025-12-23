@@ -33,6 +33,13 @@ spring:
           predicates:
             - Path=${application.api-prefix}/cartella/**
 
+        - id: vetrina-service-route
+          uri: lb://VETRINA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/vetrina/**
+
+
+
 eureka:
   client:
     register-with-eureka: true
