@@ -1,6 +1,7 @@
 server:
   port: 0 # Porta dinamica
   tomcat:
+    max-http-post-size: 100MB
     apr:
       enabled: false
 
