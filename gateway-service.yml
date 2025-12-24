@@ -21,22 +21,24 @@ spring:
   cloud:
     gateway:
       routes:
+        # PRIMA LE SPECIFICHE
+        - id: vetrina-service-route
+          uri: lb://VETRINA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/vetrina/**
+            
+        - id: cartella-service-route
+          uri: lb://CARTELLA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/cartella/**
+
+        # POI QUELLA GENERICA (Catch-all)
         - id: registration-login-route
           uri: lb://IDENTIFICAZIONE-SERVICE
           predicates:
             - Path=${application.api-prefix}/**
           filters:
             - GenerateJwtOnLogin
-       
-        - id: cartella-service-route
-          uri: lb://CARTELLA-SERVICE
-          predicates:
-            - Path=${application.api-prefix}/cartella/**
-
-        - id: vetrina-service-route
-          uri: lb://VETRINA-SERVICE
-          predicates:
-            - Path=${application.api-prefix}/vetrina/**
 
 
 
