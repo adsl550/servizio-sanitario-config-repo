@@ -7,7 +7,7 @@ server:
 
 spring:
   application:
-    name: VETRINA-SERVICE
+    name: LANDING-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/${DATASOURCE_VETRINA_DATABASE}
     username: ${DATASOURCE_VETRINA_USERNAME}
