@@ -22,10 +22,10 @@ spring:
     gateway:
       routes:
         # PRIMA LE SPECIFICHE
-        - id: vetrina-service-route
-          uri: lb://VETRINA-SERVICE
+        - id: landing-service-route
+          uri: lb://LANDING-SERVICE
           predicates:
-            - Path=${application.api-prefix}/vetrina/**
+            - Path=${application.api-prefix}/landing/**
             
         - id: cartella-service-route
           uri: lb://CARTELLA-SERVICE
