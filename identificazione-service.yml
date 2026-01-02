@@ -35,8 +35,8 @@ spring:
     prefix: ${PREFIX}
     issuer: ${ISSUER}
   mail:
-    host: ${MAIL_HOST}
-    port: ${MAIL_PORT} #
+    host: smtp.gmail.com
+    port: ${MAIL_PORT}
     username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
     properties:
