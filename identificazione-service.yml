@@ -7,7 +7,7 @@ server:
 
 spring:
   application:
-    name: IDENTIFICAZIONE-A-SERVICE
+    name: IDENTIFICAZIONE-SERVICE
     
   # Mail
   mail:
