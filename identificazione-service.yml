@@ -1,6 +1,7 @@
 server:
   port: 0 # Porta dinamica
   tomcat:
+    protocol: org.apache.coyote.http11.Http11NioProtocol
     apr:
       enabled: false
 
