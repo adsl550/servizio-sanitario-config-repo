@@ -67,6 +67,7 @@ logging:
       org.springframework.orm.jpa: INFO
 
 app:
+  publicEndPoints: ${PUBLIC_ENDPOINTS}
   security:
     jwt:
       secret: ${JWT_SECRET_KEY}
