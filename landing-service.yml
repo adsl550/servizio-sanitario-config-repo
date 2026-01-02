@@ -8,6 +8,12 @@ server:
 spring:
   application:
     name: LANDING-SERVICE
+  security:
+    jwt:
+      secret: ${JWT_SECRET_KEY}
+      expiration-ms: ${JWT_EXPIRATION_MS}
+      prefix: ${PREFIX}
+      issuer: ${ISSUER}
   datasource:
     url: jdbc:mysql://localhost:3306/${DATASOURCE_VETRINA_DATABASE}
     username: ${DATASOURCE_VETRINA_USERNAME}
@@ -40,17 +46,10 @@ eureka:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
+    org.apache.catalina.core.AprLifecycleListener: OFF
+    org.apache.catalina.tomcat.jni: OFF  
     org.hibernate.SQL: INFO
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
-
-
-app:
-  security:
-    jwt:
-      secret: ${JWT_SECRET_KEY}
-      expiration-ms: ${JWT_EXPIRATION_MS}
-      prefix: ${PREFIX}
-      issuer: ${ISSUER}
