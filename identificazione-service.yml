@@ -39,11 +39,11 @@ spring:
     port: ${MAIL_PORT} #
     username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
-    propreties:
+    properties:
       mail:
         smtp:
           auth: ${MAIL_AUTH}
-          startttls:
+          starttls:
             enable: ${MAIL_ENABLE}
     
 
@@ -60,17 +60,12 @@ eureka:
 logging:
   level:
     root: INFO
-     org:
-      apache:
-        catalina:
-          core:
-            AprLifecycleListener: OFF
-        tomcat:
-          jni: OFF  
-    org.hibernate.SQL: INFO
-    org.hibernate.resource.transaction: INFO
-    org.springframework.data.jpa.repository.query: INFO
-    org.springframework.orm.jpa: INFO
+      org.apache.catalina.core.AprLifecycleListener: OFF
+      org.apache.catalina.tomcat.jni: OFF  
+      org.hibernate.SQL: INFO
+      org.hibernate.resource.transaction: INFO
+      org.springframework.data.jpa.repository.query: INFO
+      org.springframework.orm.jpa: INFO
 
 app:
   security:
