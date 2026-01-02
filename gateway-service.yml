@@ -90,10 +90,4 @@ app:
       allowed-headers: ${CORS_ALLOWED_HEADERS}
       exposed-headers: ${CORS_ALLOWED_EXPOSED_HEADERS}
       max-age: ${CORS_ALLOWED_MAX_AGE}
-      require-https: ${CORS_ALLOWED_REQUIRE_HTTPS} 
-    jwt:
-      secret: ${JWT_SECRET_KEY}
-      expiration-ms: ${JWT_EXPIRATION_MS}
-      prefix: ${PREFIX}
-      issuer: ${ISSUER}
-  
+      require-https: ${CORS_ALLOWED_REQUIRE_HTTPS}   
