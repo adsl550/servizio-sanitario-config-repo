@@ -73,9 +73,9 @@ app:
       expiration-ms: ${JWT_EXPIRATION_MS}
       prefix: ${PREFIX}
       issuer: ${ISSUER}
-    preliminary:
-      enabled: true
-      allowed-urls: ${PUBLIC_ENDPOINTS}
-      required-headers: Serviziosanitario,Authorities,x-svz-header
+      preliminary:
+        enabled: true
+        allowed-urls: ${PUBLIC_ENDPOINTS}
+        required-headers: Serviziosanitario,Authorities,x-svz-header
     
 
