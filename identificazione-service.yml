@@ -8,6 +8,8 @@ server:
 spring:
   application:
     name: IDENTIFICAZIONE-SERVICE
+  frontend:
+    url: https://tua-applicazione-reale.it/auth/reset-password
   security:
     jwt:
       secret: ${JWT_SECRET_KEY}
