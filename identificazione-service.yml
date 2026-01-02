@@ -34,6 +34,20 @@ spring:
     expiration-ms: ${JWT_EXPIRATION_MS}
     prefix: ${PREFIX}
     issuer: ${ISSUER}
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT} #
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    propreties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH}
+          startttls:
+            enable: ${MAIL_ENABLE}
+    
+
+    
 
 # --- Configurazione del client Eureka ---
 eureka:
