@@ -45,7 +45,14 @@ eureka:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
+     org:
+      apache:
+        catalina:
+          core:
+            AprLifecycleListener: OFF
+        tomcat:
+          jni: OFF  
     org.hibernate.SQL: INFO
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
