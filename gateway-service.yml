@@ -82,3 +82,20 @@ app:
       expiration-ms: ${JWT_EXPIRATION_MS}
       prefix: ${PREFIX}
       issuer: ${ISSUER}
+    mail:
+      host: ${MAIL_HOST}
+      port: ${MAIL_PORT}
+      username: ${MAIL_USERNAME}
+      password: ${MAIL_PASSWORD}
+      protocol: smtp
+      test-connection: false  # true per testare all'avvio
+      properties:
+        mail:
+          smtp:
+            auth: ${MAIL_AUTH}
+          starttls:
+            enable: ${MAIL_ENABLE}
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
