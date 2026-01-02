@@ -66,14 +66,6 @@ logging:
       org.springframework.data.jpa.repository.query: INFO
       org.springframework.orm.jpa: INFO
 
-app:
-  publicEndPoints:
-    - /serviziosanitario/logout
-    - /serviziosanitario/login
-    - /serviziosanitario/registration
-    - /serviziosanitario/landing
-    - /serviziosanitario/forgot-password
-
   security:
     jwt:
       secret: ${JWT_SECRET_KEY}
