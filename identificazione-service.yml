@@ -8,6 +8,23 @@ server:
 spring:
   application:
     name: IDENTIFICAZIONE-SERVICE
+  # Mail
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: smtp
+    test-connection: false  # true per testare all'avvio
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH}
+          starttls:
+            enable: ${MAIL_ENABLE}
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
   datasource:
     url: jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE}
     username: ${DATASOURCE_USERNAME}
@@ -34,23 +51,6 @@ spring:
     expiration-ms: ${JWT_EXPIRATION_MS}
     prefix: ${PREFIX}
     issuer: ${ISSUER}
-# Mail
-  mail:
-    host: ${MAIL_HOST}
-    port: ${MAIL_PORT}
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
-    protocol: smtp
-    test-connection: false  # true per testare all'avvio
-    properties:
-      mail:
-        smtp:
-          auth: ${MAIL_AUTH}
-          starttls:
-            enable: ${MAIL_ENABLE}
-          connectiontimeout: 5000
-          timeout: 5000
-          writetimeout: 5000
 
 # --- Configurazione del client Eureka ---
 eureka:
