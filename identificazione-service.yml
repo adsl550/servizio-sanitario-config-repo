@@ -70,10 +70,3 @@ logging:
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
-   
-  security:
-    jwt:
-      secret: ${JWT_SECRET_KEY}
-      expiration-ms: ${JWT_EXPIRATION_MS}
-      prefix: ${PREFIX}
-      issuer: ${ISSUER}
