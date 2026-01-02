@@ -8,6 +8,7 @@ server:
 spring:
   application:
     name: IDENTIFICAZIONE-SERVICE
+    test: NUOVO-NOME
   # Mail
   mail:
     host: ${MAIL_HOST}
