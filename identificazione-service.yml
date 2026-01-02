@@ -8,7 +8,12 @@ server:
 spring:
   application:
     name: IDENTIFICAZIONE-SERVICE
-    
+  security:
+    jwt:
+      secret: ${JWT_SECRET_KEY}
+      expiration-ms: ${JWT_EXPIRATION_MS}
+      prefix: ${PREFIX}
+      issuer: ${ISSUER}
   # Mail
   mail:
     host: ${MAIL_HOST}
@@ -47,11 +52,6 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
     show-sql: true
-  jwt:
-    secret: ${JWT_SECRET_KEY}
-    expiration-ms: ${JWT_EXPIRATION_MS}
-    prefix: ${PREFIX}
-    issuer: ${ISSUER}
 
 # --- Configurazione del client Eureka ---
 eureka:
