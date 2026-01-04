@@ -15,9 +15,9 @@ spring:
       prefix: ${PREFIX}
       issuer: ${ISSUER}
   datasource:
-    url: jdbc:mysql://localhost:3306/${DATASOURCE_VETRINA_DATABASE}
-    username: ${DATASOURCE_VETRINA_USERNAME}
-    password: ${DATASOURCE_VETRINA_PASSWORD}
+    url: jdbc:mysql://localhost:3306/${DATASOURCE_LANDING_DATABASE}
+    username: ${DATASOURCE_LANDING_USERNAME}
+    password: ${DATASOURCE_LANDING_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
