@@ -10,12 +10,12 @@ spring:
     name: CARTELLA-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE_CARTELLA}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
+    username: ${DATASOURCE_USERNAME_CARTELLA}
+    password: ${DATASOURCE_PASSWORD_CARTELLA}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      pool-name: Hikari-Identificazione # Diamo un nome al pool, utile per i log
+      pool-name: Hikari-Cartella # Diamo un nome al pool, utile per i log
       maximum-pool-size: 10 # Dimensione massima. Un buon punto di partenza. Non esagerare!
       minimum-idle: 5       # Connessioni minime da tenere sempre pronte
       connection-timeout: 30000 # 30 secondi per ottenere una connessione prima di un errore
