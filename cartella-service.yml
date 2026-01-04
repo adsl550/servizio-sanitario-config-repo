@@ -1,21 +1,26 @@
 server:
   port: 0 # Porta dinamica
+  tomcat:
+    protocol: org.apache.coyote.http11.Http11NioProtocol
+    apr:
+      enabled: false
 
 spring:
+ application:
+    name: CARTELLA-SERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/cartella_db # <-- PORTA 5433!
-    username: root
-    password: root
+    url: jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE_CARTELLA}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
-    hikari: 
-      pool-name: Hikari-Cartella
+    hikari:
+      pool-name: Hikari-Identificazione # Diamo un nome al pool, utile per i log
       maximum-pool-size: 10 # Dimensione massima. Un buon punto di partenza. Non esagerare!
       minimum-idle: 5       # Connessioni minime da tenere sempre pronte
       connection-timeout: 30000 # 30 secondi per ottenere una connessione prima di un errore
       idle-timeout: 600000      # 10 minuti prima di chiudere una connessione inattiva
-      max-lifetime: 1800000     # 30 minuti di vita massima per una connessione
-
+      max-lifetime: 1800000     # 30 minuti di vita massima per una connessione  
   jpa:
     hibernate:
       ddl-auto: update
@@ -34,9 +39,10 @@ eureka:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
+    org.apache.catalina.core.AprLifecycleListener: OFF
+    org.apache.catalina.tomcat.jni: OFF  
     org.hibernate.SQL: INFO
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
-
