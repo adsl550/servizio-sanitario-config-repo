@@ -9,9 +9,9 @@ spring:
   application:
     name: CARTELLA-SERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE_CARTELLA}
-    username: ${DATASOURCE_USERNAME_CARTELLA}
-    password: ${DATASOURCE_PASSWORD_CARTELLA}
+    url: ${SPRING_DATASOURCE_CARTELLA_URL} #jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE_CARTELLA}
+    username: ${DATASOURCE_CARTELLA_USERNAME}
+    password: ${DATASOURCE_CARTELLA_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
