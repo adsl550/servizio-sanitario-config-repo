@@ -82,13 +82,3 @@ security:
     allowed-urls: ${PUBLIC_ENDPOINTS}
     required-headers: Serviziosanitario,Authorities,x-svz-header
  
-app:
-  security:
-    public-endpoints: ${PUBLIC_ENDPOINTS}
-    cors:  
-      allowed-origins: ${CORS_ALLOWED_ORIGINS}
-      allowed-methods: ${CORS_ALLOWED_METHODS} 
-      allowed-headers: ${CORS_ALLOWED_HEADERS}
-      exposed-headers: ${CORS_ALLOWED_EXPOSED_HEADERS}
-      max-age: ${CORS_ALLOWED_MAX_AGE}
-      require-https: ${CORS_ALLOWED_REQUIRE_HTTPS}   
