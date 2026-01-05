@@ -19,6 +19,7 @@ spring:
       save-mode: on-set-attribute
   security:
     public-endpoints: ${PUBLIC_ENDPOINTS}
+    private-endpoints: ${PRIVATE_ENDPOINTS}
     jwt:
       secret: ${JWT_SECRET_KEY}
       expiration-ms: ${JWT_EXPIRATION_MS}
@@ -80,5 +81,6 @@ security:
   preliminary-filter:
     enabled: true
     allowed-urls: ${PUBLIC_ENDPOINTS}
+    private-urls: ${PRIVATE_ENDPOINTS}
     required-headers: Serviziosanitario,Authorities,x-svz-header
  
