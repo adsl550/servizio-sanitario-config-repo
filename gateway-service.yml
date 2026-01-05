@@ -68,12 +68,13 @@ eureka:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
+    org.apache.catalina.core.AprLifecycleListener: OFF
+    org.apache.catalina.tomcat.jni: OFF  
     org.hibernate.SQL: INFO
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
-
 # --- Configurazione Sicurezza Personalizzata ---
 security:
   preliminary-filter:
