@@ -16,8 +16,8 @@ spring:
       issuer: ${ISSUER}
   datasource:
     url: jdbc:mysql://localhost:3306/${DATASOURCE_DATABASE_LANDING}
-    username: ${DATASOURCE_LANDING_USERNAME}
-    password: ${DATASOURCE_LANDING_PASSWORD}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
