@@ -23,6 +23,7 @@ spring:
     jwt:
       secret: ${JWT_SECRET_KEY}
       expiration-ms: ${JWT_EXPIRATION_MS}
+      audience: ${JWT_AUDIENCE}
       prefix: ${PREFIX}
       issuer: ${ISSUER}
     cors:  
