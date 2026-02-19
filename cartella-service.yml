@@ -6,6 +6,13 @@ server:
       enabled: false
 
 spring:
+  cloud:
+    gcp:
+      project-id: project-c825f928-e5c5-459e-a3e
+      credentials:
+        location: classpath:gcp-key.json
+      storage:
+        enabled: true
   application:
     name: CARTELLA-SERVICE
   security:
@@ -54,3 +61,6 @@ logging:
     org.hibernate.resource.transaction: INFO
     org.springframework.data.jpa.repository.query: INFO
     org.springframework.orm.jpa: INFO
+gcp:
+  bucket:
+    name: documenti-pazienti-btc
