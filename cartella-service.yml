@@ -8,11 +8,11 @@ server:
 spring:
   cloud:
     gcp:
-      project-id: project-c825f928-e5c5-459e-a3e
+      project-id: ${CLOUD_PROJECT_ID}
       credentials:
-        location: classpath:gcp-key.json
+        location: ${CLOUD_CREDENTIALS_LOCATION}
       storage:
-        enabled: true
+        enabled: ${CLOUD_CREDENTIALS_STORAGE}
   application:
     name: CARTELLA-SERVICE
   security:
@@ -63,4 +63,4 @@ logging:
     org.springframework.orm.jpa: INFO
 gcp:
   bucket:
-    name: documenti-pazienti-btc
+    name: ${GPC_BUCKET_NAME}
