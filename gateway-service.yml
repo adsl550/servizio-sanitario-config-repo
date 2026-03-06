@@ -23,6 +23,7 @@ spring:
     jwt:
       secret: ${JWT_SECRET_KEY}
       expiration-ms: ${JWT_EXPIRATION_MS}
+      audience: ${JWT_AUDIENCE}
       prefix: ${PREFIX}
       issuer: ${ISSUER}
     cors:  
@@ -46,6 +47,22 @@ spring:
           uri: lb://CARTELLA-SERVICE
           predicates:
             - Path=${application.api-prefix}/cartella/**
+        # Nuova rotta specifica per Azienda (ID UNICO)
+        - id: azienda-service-route
+          uri: lb://CARTELLA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/azienda/**
+        # Nuova rotta specifica per Pdf (ID UNICO)
+        - id: pdf-service-route
+          uri: lb://CARTELLA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/pdf/**
+        # Nuova rotta specifica per Rischio (ID UNICO)
+        - id: rischio-service-route
+          uri: lb://CARTELLA-SERVICE
+          predicates:
+            - Path=${application.api-prefix}/rischio/**
+  
 
         # POI QUELLA GENERICA (Catch-all)
         - id: registration-login-route
